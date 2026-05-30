@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dn3fmrxdxpx2l"]
 
-[ext_resource type="Texture2D" uid="uid://bptrmyb1u8xo0" path="res://Assets/Tiny Swords (Free Pack)/Buildings/Purple Buildings/Tower.png" id="1_arn3v"]
+[ext_resource type="Script" uid="uid://pc4wmegmfs4e" path="res://Tower.cs" id="1_bn6qc"]
+[ext_resource type="Texture2D" uid="uid://cwyrn4eag2702" path="res://Assets/Tiny Swords (Free Pack)/Buildings/Blue Buildings/Tower.png" id="2_usulm"]
 
 [node name="Tower" type="Node2D" unique_id=750685378]
+script = ExtResource("1_bn6qc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1771745702]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_arn3v")
-offset = Vector2(0, -128)
+texture = ExtResource("2_usulm")
+offset = Vector2(0, -64)
