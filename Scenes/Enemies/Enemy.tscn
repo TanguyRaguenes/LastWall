@@ -1,38 +1,38 @@
 [gd_scene format=3 uid="uid://cq2fywod300ld"]
 
-[ext_resource type="Script" uid="uid://dwnpdic8dekko" path="res://Enemy.cs" id="1_s7bn3"]
-[ext_resource type="Texture2D" uid="uid://cjhseoi8x7kev" path="res://Assets/Tiny Swords (Free Pack)/Units/Red Units/Warrior/Warrior_Idle.png" id="2_2hac7"]
+[ext_resource type="Script" uid="uid://dwnpdic8dekko" path="res://Scripts/Enemies/Enemy.cs" id="1_wovta"]
+[ext_resource type="Texture2D" uid="uid://cjhseoi8x7kev" path="res://Assets/Tiny Swords (Free Pack)/Units/Red Units/Warrior/Warrior_Idle.png" id="2_xeo28"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e6d4v"]
-atlas = ExtResource("2_2hac7")
+atlas = ExtResource("2_xeo28")
 region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qp131"]
-atlas = ExtResource("2_2hac7")
+atlas = ExtResource("2_xeo28")
 region = Rect2(192, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6do27"]
-atlas = ExtResource("2_2hac7")
+atlas = ExtResource("2_xeo28")
 region = Rect2(384, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rvmyp"]
-atlas = ExtResource("2_2hac7")
+atlas = ExtResource("2_xeo28")
 region = Rect2(576, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2nxwx"]
-atlas = ExtResource("2_2hac7")
+atlas = ExtResource("2_xeo28")
 region = Rect2(768, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52xpa"]
-atlas = ExtResource("2_2hac7")
+atlas = ExtResource("2_xeo28")
 region = Rect2(960, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jdgko"]
-atlas = ExtResource("2_2hac7")
+atlas = ExtResource("2_xeo28")
 region = Rect2(1152, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4qr3"]
-atlas = ExtResource("2_2hac7")
+atlas = ExtResource("2_xeo28")
 region = Rect2(1344, 0, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_73x2u"]
@@ -68,7 +68,7 @@ animations = [{
 }]
 
 [node name="Enemy" type="Node2D" unique_id=300630985]
-script = ExtResource("1_s7bn3")
+script = ExtResource("1_wovta")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=88258677]
 sprite_frames = SubResource("SpriteFrames_73x2u")

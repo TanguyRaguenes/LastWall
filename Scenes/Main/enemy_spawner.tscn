@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://csjektektod61"]
+
+[node name="EnemySpawner" type="Node2D" unique_id=1495593533]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=765494854]

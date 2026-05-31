@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://c4ohaol0xvhy8"]
-
-[ext_resource type="Script" uid="uid://dpbenbod6woyc" path="res://GridManager.cs" id="1_glv2v"]
-
-[node name="Node2D" type="Node2D" unique_id=958919444]
-script = ExtResource("1_glv2v")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1767268638]

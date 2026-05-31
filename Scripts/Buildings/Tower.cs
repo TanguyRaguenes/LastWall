@@ -8,11 +8,13 @@ public partial class Tower : Node2D
 	private PackedScene _projectileScene = null!;
 	private double _cooldown;
 	private const double FireRate = 1.0;
+
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		GD.Print("Tower prête");
-		_projectileScene = GD.Load<PackedScene>("res://Projectile.tscn");
+		_projectileScene = GD.Load<PackedScene>("res://Scenes/Projectiles/Projectile.tscn");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,6 +38,7 @@ public partial class Tower : Node2D
 		projectile.Init(target, 1);
 
 		GetParent().AddChild(projectile);
+		GetNode<AudioManager>("/root/AudioManager").PlaySfx("arrow");
 
 		// On remet le cooldown à 1 seconde
 		_cooldown = FireRate;

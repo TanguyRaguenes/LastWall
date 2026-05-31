@@ -15,6 +15,10 @@ run/main_scene="uid://c4ohaol0xvhy8"
 config/features=PackedStringArray("4.6", "C#", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioManager="*uid://d3d7pqlkcqte3"
+
 [dotnet]
 
 project/assembly_name="LastWall"
