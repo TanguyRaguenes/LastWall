@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cqbmuiuswxjhb"]
+
+[ext_resource type="Texture2D" uid="uid://cwyrn4eag2702" path="res://Assets/Tiny Swords (Free Pack)/Buildings/Blue Buildings/Tower.png" id="1_4o2mq"]
+[ext_resource type="Texture2D" uid="uid://dej3xwfw1f87m" path="res://Assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Banners/Banner_Slots.png" id="1_ey6vn"]
+[ext_resource type="Script" uid="uid://xg1x7n0h3ic7" path="res://Scripts/Main/ConstructionMenu.cs" id="1_wqde2"]
+[ext_resource type="Texture2D" uid="uid://ci5pvwqhd8ebv" path="res://Assets/Tiny Swords (Free Pack)/Terrain/Resources/Gold/Gold Stones/Gold Stone 6.png" id="3_5lk5g"]
+[ext_resource type="Texture2D" uid="uid://cliydgn4msujq" path="res://Assets/Tiny Swords (Free Pack)/Terrain/Resources/Meat/Meat Resource/Meat Resource.png" id="4_n4xin"]
+[ext_resource type="Texture2D" uid="uid://c5owp6q7h61ut" path="res://Assets/Sprites/Terrain/Ressources/Tree/Tree_01.png" id="4_wqde2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4hvqh"]
+texture = ExtResource("1_ey6vn")
+
+[node name="ConstructionMenu" type="CanvasLayer" unique_id=100218950]
+script = ExtResource("1_wqde2")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=768618798]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 256.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4hvqh")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer" unique_id=513723981]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 4
+
+[node name="TowerButton" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=1252381667]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("1_4o2mq")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TreeButton" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=344863136]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("4_wqde2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="GoldButton" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=916620864]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("3_5lk5g")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SheepButton" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=908527433]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("4_n4xin")
+ignore_texture_size = true
+stretch_mode = 5

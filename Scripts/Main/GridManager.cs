@@ -1,5 +1,7 @@
 using Godot;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Linq.Expressions;
 
 public partial class GridManager : Node2D
 {
@@ -7,25 +9,27 @@ public partial class GridManager : Node2D
 	private AStarGrid2D _astar = new();
 
 	//Dimensions de la grille
-	private const int CellSize = 64;
+	private const int CellSize = 128;
 	private const int GridWidth = 50;
 	private const int GridHeight = 50;
 
-	private readonly HashSet<Vector2I> _towers = [];
-	private readonly HashSet<Vector2I> _walls = [];
-	private readonly Dictionary<Vector2I, Tree> _trees = [];
+	private readonly Dictionary<Vector2I, Node2D> _placedItems = [];
+
+	private Dictionary<BuildItemType, PackedScene> _buildScenes = [];
 
 	private PackedScene _towerScene = null!;
-	private PackedScene _wallScene = null!;
 	private PackedScene _treeScene = null!;
+	private PackedScene _sheepScene = null!;
 	private PackedScene _enemyScene = null!;
 	private PackedScene _townCenterScene = null!;
 
-
 	private Tower _tower = null!;
-	private Wall _wall = null!;
 	private Tree _tree = null!;
 	private TownCenter _townCenter = null!;
+
+	 private BuildItemType _selectedItem = BuildItemType.None;
+
+	 private Node2D? _preview;
 
 	
 	// Called when the node enters the scene tree for the first time.
@@ -33,11 +37,11 @@ public partial class GridManager : Node2D
 	{
 
 		//Import des scenes
-		_towerScene = GD.Load<PackedScene>("res://Scenes/Buildings/Tower.tscn");
-		_wallScene = GD.Load<PackedScene>("res://Scenes/Buildings/Wall.tscn");
-		_treeScene = GD.Load<PackedScene>("res://Scenes/Ressources/Tree.tscn");
 		_enemyScene = GD.Load<PackedScene>("res://Scenes/Enemies/Enemy.tscn");
 		_townCenterScene = GD.Load<PackedScene>("res://Scenes/Buildings/TownCenter.tscn");
+		_towerScene = GD.Load<PackedScene>("res://Scenes/Buildings/Tower.tscn");
+		_treeScene = GD.Load<PackedScene>("res://Scenes/Ressources/Tree.tscn");
+		_sheepScene = GD.Load<PackedScene>("res://Scenes/Ressources/Sheep.tscn");
 
 		//Création du centre ville
 		_townCenter = _townCenterScene.Instantiate<TownCenter>();
@@ -49,11 +53,35 @@ public partial class GridManager : Node2D
 		_astar.DiagonalMode = AStarGrid2D.DiagonalModeEnum.Never;
 		_astar.Update();
 
+		ConstructionMenu menu = GetNode<ConstructionMenu>("ConstructionMenu");
+
+		//Mise en place de l'abonnement
+        menu.BuildItemSelected += OnBuildItemSelected;
+
+		Texture2D cursor = GD.Load<Texture2D>(
+        "res://Assets/Sprites/Cursors/Cursor_02.png"
+		);
+
+		Input.SetCustomMouseCursor(cursor);
+
+		_buildScenes = new()
+		{
+			{ BuildItemType.Tower, _towerScene },
+			{ BuildItemType.Tree, _treeScene },
+			{ BuildItemType.Sheep, _sheepScene },
+		};
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		
+		if (_selectedItem == BuildItemType.None || _preview == null)
+        return;
+
+		Vector2I cell = WorldToCell(GetGlobalMousePosition());
+		_preview.Position = CellToWorldCenter(cell);
 	}
 	
 	public override void _Draw()
@@ -71,76 +99,39 @@ public partial class GridManager : Node2D
 	public override void _Input(InputEvent @event)
 	{
 
-		Vector2 mousePosition = GetGlobalMousePosition();
-
-		int gridX = Mathf.FloorToInt(mousePosition.X / CellSize);
-		int gridY = Mathf.FloorToInt(mousePosition.Y / CellSize);
-
-		Vector2I cell = new(gridX, gridY);
-
-		if (@event is not InputEventMouseButton mouseEvent)
-        	return;
-
-
-		if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left && !_towers.Contains(cell))
+		    if (@event is InputEventKey keyEvent
+        && keyEvent.Pressed
+        && keyEvent.Keycode == Key.Space)
 		{
-						_towers.Add(cell);
-
-			Tower tower = _towerScene.Instantiate<Tower>();
-
-			tower.Position = new Vector2(
-				gridX * CellSize + CellSize / 2,
-				gridY * CellSize + CellSize
-			);
-			AddChild(tower);
+						Enemy enemy = _enemyScene.Instantiate<Enemy>();
+				enemy.Position = new Vector2(0, 320);
+				enemy.Init(_townCenter, this);
+				AddChild(enemy);
 		}
-
-
-
-		
-		if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Right && !_trees.ContainsKey(cell))
-		{
-			Tree tree = _treeScene.Instantiate<Tree>();
-
-			tree.Position = new Vector2(
-				gridX * CellSize + CellSize / 2,
-				gridY * CellSize + CellSize
-			);
-
-			AddChild(tree);
-
-			_trees[cell] = tree;
-			_astar.SetPointSolid(cell, true);
-			RecalculateAllEnemiesPaths();
-		}
-
-		if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Middle && _trees.ContainsKey(cell))
-		{
-			Tree tree = _trees[cell];
-
-			tree.QueueFree();
-
-			_trees.Remove(cell);
-			_astar.SetPointSolid(cell, false);
-			RecalculateAllEnemiesPaths();
-		}
-
-		
 
 	}
 
 	public override void _UnhandledInput(InputEvent @event)
 	{
-		if (!@event.IsActionPressed("ui_accept"))
+
+		if (@event is not InputEventMouseButton mouseEvent || !mouseEvent.Pressed)
+        	return;
+
+		if (mouseEvent.ButtonIndex == MouseButton.Right)
+		{
+			CancelBuildSelection();
 			return;
+		}
 
-		Enemy enemy = _enemyScene.Instantiate<Enemy>();
+		if (mouseEvent.ButtonIndex == MouseButton.Left)
+		{
+			if (_selectedItem == BuildItemType.None)
+				return;
 
-		enemy.Position = new Vector2(0, 320);
+			Vector2I cell = WorldToCell(GetGlobalMousePosition());
+			PlaceSelectedItem(cell);
+		}
 
-		enemy.Init(_townCenter, this);
-
-		AddChild(enemy);
 	}
 
 
@@ -155,8 +146,8 @@ public partial class GridManager : Node2D
 	public Vector2 CellToWorldCenter(Vector2I cell)
 	{
 		return new Vector2(
-			cell.X * CellSize + CellSize / 2,
-			cell.Y * CellSize + CellSize / 2
+			cell.X * CellSize + CellSize/2,
+			cell.Y * CellSize + CellSize
 		);
 	}
 
@@ -176,4 +167,77 @@ public partial class GridManager : Node2D
 				enemy.RecalculatePath();
 		}
 	}
+
+	private void OnBuildItemSelected(BuildItemType item)
+    {
+		_selectedItem = item;
+		CreatePreview(item);
+
+        GD.Print($"Sélection : {item}");
+
+		//  Input.MouseMode = Input.MouseModeEnum.Hidden;
+
+    }
+
+	private void PlaceSelectedItem(Vector2I cell)
+	{
+		PackedScene? scene = GetSceneForItem(_selectedItem);
+
+		if (scene == null)
+			return;
+
+		PlaceItem(cell, scene);
+	}
+	
+	private void PlaceItem(Vector2I cell, PackedScene scene)
+	{
+		if (_placedItems.ContainsKey(cell))
+			return;
+
+		Node2D item = scene.Instantiate<Node2D>();
+
+		item.Position = CellToWorldCenter(cell);
+
+		AddChild(item);
+
+		_placedItems[cell] = item;
+
+		_astar.SetPointSolid(cell, true);
+		RecalculateAllEnemiesPaths();
+	}
+
+	private void CreatePreview(BuildItemType item)
+	{
+		_preview?.QueueFree();
+		_preview = null;
+
+		PackedScene? scene = GetSceneForItem(item);
+
+		if (scene == null)
+			return;
+
+		_preview = scene.Instantiate<Node2D>();
+		_preview.Modulate = new Color(1, 1, 1, 0.5f);
+		_preview.ZIndex = 1000;
+
+		AddChild(_preview);
+	}
+
+	private PackedScene? GetSceneForItem(BuildItemType item)
+	{
+		return _buildScenes.GetValueOrDefault(item);
+	}
+
+	private void CancelBuildSelection()
+	{
+		_selectedItem = BuildItemType.None;
+
+		_preview?.QueueFree();
+		_preview = null;
+
+		// Input.MouseMode = Input.MouseModeEnum.Visible;
+
+		GD.Print("Construction annulée");
+	}
 }
+

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dpbenbod6woyc" path="res://Scripts/Main/GridManager.cs" id="1_p8rbg"]
 [ext_resource type="Texture2D" uid="uid://cabppedptug01" path="res://Assets/Tiny Swords (Free Pack)/Terrain/Tileset/Tilemap_color1.png" id="2_qtv3y"]
 [ext_resource type="Script" uid="uid://23u8s5ce4k7x" path="res://Scripts/Main/GridDrawer.cs" id="3_cmk6n"]
+[ext_resource type="PackedScene" uid="uid://cqbmuiuswxjhb" path="res://Scenes/Main/ConstructionMenu.tscn" id="4_i3fi7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cmk6n"]
 texture = ExtResource("2_qtv3y")
@@ -199,3 +200,5 @@ tile_set = SubResource("TileSet_p8rbg")
 
 [node name="GridDrawer" type="Node2D" parent="." unique_id=1126678211]
 script = ExtResource("3_cmk6n")
+
+[node name="ConstructionMenu" parent="." unique_id=100218950 instance=ExtResource("4_i3fi7")]
