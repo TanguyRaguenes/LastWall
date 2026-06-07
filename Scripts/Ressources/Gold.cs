@@ -1,13 +1,12 @@
 using Godot;
 using System;
 
-public partial class Tree : Resource
+public partial class Gold : Resource
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("default");
-		Health=4;
+		Health=100;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

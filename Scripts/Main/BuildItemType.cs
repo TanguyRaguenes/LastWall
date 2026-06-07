@@ -4,5 +4,6 @@ public enum BuildItemType
 	Tower,
 	Tree,
 	Gold,
-	Sheep
+	Sheep,
+	Peasant
 }

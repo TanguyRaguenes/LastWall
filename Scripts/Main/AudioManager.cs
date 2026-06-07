@@ -23,7 +23,7 @@ public partial class AudioManager : Node
 
         _sounds["arrow"] = GD.Load<AudioStream>("res://Assets/Sounds/arrow-swish.mp3");
         
-        _musicPlayer.Stream = GD.Load<AudioStream>("res://Assets/Musics/OST 1 - Poison Ivy Manor (Loopable).mp3");
+        // _musicPlayer.Stream = GD.Load<AudioStream>("res://Assets/Musics/OST 1 - Poison Ivy Manor (Loopable).mp3");
 
         _musicPlayer.Play();
 	}

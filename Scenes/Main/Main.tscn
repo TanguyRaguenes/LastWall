@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://dpbenbod6woyc" path="res://Scripts/Main/GridManager.cs" id="1_p8rbg"]
 [ext_resource type="Texture2D" uid="uid://cabppedptug01" path="res://Assets/Tiny Swords (Free Pack)/Terrain/Tileset/Tilemap_color1.png" id="2_qtv3y"]
 [ext_resource type="Script" uid="uid://23u8s5ce4k7x" path="res://Scripts/Main/GridDrawer.cs" id="3_cmk6n"]
-[ext_resource type="PackedScene" uid="uid://cqbmuiuswxjhb" path="res://Scenes/Main/ConstructionMenu.tscn" id="4_i3fi7"]
+[ext_resource type="PackedScene" uid="uid://ct06w5tjfrg7h" path="res://Scenes/PlayerUnits/Peasant.tscn" id="5_o8wgc"]
+[ext_resource type="PackedScene" uid="uid://dnnen58mmrfes" path="res://Scenes/Main/menu.tscn" id="6_aw1lf"]
+[ext_resource type="PackedScene" uid="uid://cmcfxlaaomiy" path="res://Scenes/PlayerUnits/archer.tscn" id="6_w20t6"]
+[ext_resource type="PackedScene" uid="uid://b55q660vi6hhh" path="res://Scenes/Main/selection_manager.tscn" id="7_aw1lf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cmk6n"]
 texture = ExtResource("2_qtv3y")
@@ -201,4 +204,12 @@ tile_set = SubResource("TileSet_p8rbg")
 [node name="GridDrawer" type="Node2D" parent="." unique_id=1126678211]
 script = ExtResource("3_cmk6n")
 
-[node name="ConstructionMenu" parent="." unique_id=100218950 instance=ExtResource("4_i3fi7")]
+[node name="Peasant" parent="." unique_id=1401433569 instance=ExtResource("5_o8wgc")]
+position = Vector2(562, 240)
+
+[node name="Archer" parent="." unique_id=725575854 instance=ExtResource("6_w20t6")]
+position = Vector2(200, 458)
+
+[node name="Menu" parent="." unique_id=411277063 instance=ExtResource("6_aw1lf")]
+
+[node name="SelectionManager" parent="." unique_id=1544020700 instance=ExtResource("7_aw1lf")]

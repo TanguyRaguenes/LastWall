@@ -20,6 +20,8 @@ public partial class GridManager : Node2D
 	private PackedScene _towerScene = null!;
 	private PackedScene _treeScene = null!;
 	private PackedScene _sheepScene = null!;
+	private PackedScene _goldScene = null!;
+	private PackedScene _peasantScene = null!;
 	private PackedScene _enemyScene = null!;
 	private PackedScene _townCenterScene = null!;
 
@@ -42,6 +44,8 @@ public partial class GridManager : Node2D
 		_towerScene = GD.Load<PackedScene>("res://Scenes/Buildings/Tower.tscn");
 		_treeScene = GD.Load<PackedScene>("res://Scenes/Ressources/Tree.tscn");
 		_sheepScene = GD.Load<PackedScene>("res://Scenes/Ressources/Sheep.tscn");
+		_goldScene = GD.Load<PackedScene>("res://Scenes/Ressources/Gold.tscn");
+		_peasantScene = GD.Load<PackedScene>("res://Scenes/PlayerUnits/Peasant.tscn");
 
 		//Création du centre ville
 		_townCenter = _townCenterScene.Instantiate<TownCenter>();
@@ -53,7 +57,9 @@ public partial class GridManager : Node2D
 		_astar.DiagonalMode = AStarGrid2D.DiagonalModeEnum.Never;
 		_astar.Update();
 
-		ConstructionMenu menu = GetNode<ConstructionMenu>("ConstructionMenu");
+		// ConstructionMenu menu = GetNode<ConstructionMenu>("ConstructionMenu");
+
+		Menu menu = GetNode<Menu>("Menu");
 
 		//Mise en place de l'abonnement
         menu.BuildItemSelected += OnBuildItemSelected;
@@ -69,6 +75,8 @@ public partial class GridManager : Node2D
 			{ BuildItemType.Tower, _towerScene },
 			{ BuildItemType.Tree, _treeScene },
 			{ BuildItemType.Sheep, _sheepScene },
+			{ BuildItemType.Peasant, _peasantScene },
+			{ BuildItemType.Gold, _goldScene }
 		};
 
 	}
@@ -95,11 +103,13 @@ public partial class GridManager : Node2D
 			DrawLine(new Vector2(0, y * CellSize), new Vector2(GridWidth * CellSize, y * CellSize), Colors.Gray);
 
 	}
+
+	
 	
 	public override void _Input(InputEvent @event)
 	{
 
-		    if (@event is InputEventKey keyEvent
+		if (@event is InputEventKey keyEvent
         && keyEvent.Pressed
         && keyEvent.Keycode == Key.Space)
 		{
@@ -135,7 +145,7 @@ public partial class GridManager : Node2D
 	}
 
 
-	public Vector2I WorldToCell(Vector2 position)
+	public static Vector2I WorldToCell(Vector2 position)
 	{
 		return new Vector2I(
 			Mathf.FloorToInt(position.X / CellSize),
@@ -143,10 +153,10 @@ public partial class GridManager : Node2D
 		);
 	}
 
-	public Vector2 CellToWorldCenter(Vector2I cell)
+	public static Vector2 CellToWorldCenter(Vector2 cell)
 	{
 		return new Vector2(
-			cell.X * CellSize + CellSize/2,
+			cell.X * CellSize + CellSize / 2,
 			cell.Y * CellSize + CellSize
 		);
 	}

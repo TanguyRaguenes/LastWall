@@ -50,7 +50,7 @@ public partial class Enemy : Node2D
         if (_path.Count == 0)
             return;
 
-        Vector2 targetPosition = _gridManager.CellToWorldCenter(_path[_pathIndex]);
+        Vector2 targetPosition = GridManager.CellToWorldCenter(_path[_pathIndex]);
 
         Position = Position.MoveToward(
             targetPosition,

@@ -4,7 +4,7 @@ using System;
 public partial class GridDrawer : Node2D
 {
 
-	private const int CellSize = 64;
+	private const int CellSize = 128;
     private const int GridWidth = 50;
     private const int GridHeight = 50;
 	// Called when the node enters the scene tree for the first time.

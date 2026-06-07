@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6xwg4gb86vjd"]
 
-[ext_resource type="Script" uid="uid://cwhj2iyw82axq" path="res://Scripts/Ressources/Sheep/Sheep.cs" id="1_ah2f1"]
+[ext_resource type="Script" uid="uid://cwhj2iyw82axq" path="res://Scripts/Ressources/Sheep.cs" id="1_ah2f1"]
 [ext_resource type="Texture2D" uid="uid://dmng8wuc21d5u" path="res://Assets/Sprites/Terrain/Ressources/Sheep/Sheep_Idle.png" id="2_nbo5h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aloly"]
@@ -50,7 +50,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Sheep" type="Node2D" unique_id=248754711]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dnnen58mmrfes"]
+
+[ext_resource type="Script" uid="uid://nwuwyaa8c4o6" path="res://Scripts/Main/Menu.cs" id="1_kk17b"]
+
+[node name="Menu" type="CanvasLayer" unique_id=411277063]
+script = ExtResource("1_kk17b")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1587802048]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer" unique_id=1012709909]
+layout_mode = 2
+columns = 3
+
+[node name="TreeButton" type="Button" parent="PanelContainer/GridContainer" unique_id=1020358736]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+
+[node name="GoldButton" type="Button" parent="PanelContainer/GridContainer" unique_id=1101272346]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+
+[node name="TowerButton" type="Button" parent="PanelContainer/GridContainer" unique_id=1834392525]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b55q660vi6hhh"]
+
+[ext_resource type="Script" uid="uid://du78terfburlc" path="res://Scripts/Main/SelectionManager.cs" id="1_dl1ag"]
+
+[node name="SelectionManager" type="Node2D" unique_id=1544020700]
+script = ExtResource("1_dl1ag")

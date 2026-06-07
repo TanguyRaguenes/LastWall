@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg6od5kl3bxyk"
-path="res://.godot/imported/Pawn_Idle.png-1a1de62cd2266077b81c1d4bbac9d188.ctex"
+uid="uid://cb11c15psvkki"
+path="res://.godot/imported/Tower.png-7a4042f11de2ae472927c607ecdc7a18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiny Swords (Free Pack)/Units/Blue Units/Pawn/Pawn_Idle.png"
-dest_files=["res://.godot/imported/Pawn_Idle.png-1a1de62cd2266077b81c1d4bbac9d188.ctex"]
+source_file="res://Assets/Buildings/Tower.png"
+dest_files=["res://.godot/imported/Tower.png-7a4042f11de2ae472927c607ecdc7a18.ctex"]
 
 [params]
 

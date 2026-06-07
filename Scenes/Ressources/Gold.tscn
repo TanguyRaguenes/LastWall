@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b80om88gm57l"]
+
+[ext_resource type="Script" uid="uid://d4ndp5kjkir13" path="res://Scripts/Ressources/Gold.cs" id="1_s4ssu"]
+[ext_resource type="Texture2D" uid="uid://byc7u2strsesg" path="res://Assets/Resources/Gold Stone 6.png" id="1_sl0rg"]
+
+[node name="Gold" type="Node2D" unique_id=67169092]
+script = ExtResource("1_s4ssu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1116023559]
+position = Vector2(0, -64)
+texture = ExtResource("1_sl0rg")

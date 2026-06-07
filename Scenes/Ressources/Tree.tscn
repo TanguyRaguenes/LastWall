@@ -64,7 +64,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 1.0
+"speed": 10.0
 }]
 
 [node name="Node2D" type="Node2D" unique_id=761671203]
