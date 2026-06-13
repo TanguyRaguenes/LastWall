@@ -1,5 +1,5 @@
 
-namespace Game.Types;
+namespace GodotGame.Game.Types;
 public enum BuildItemType
 {
 	None,

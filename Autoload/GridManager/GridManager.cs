@@ -1,7 +1,7 @@
 using Godot;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq.Expressions;
+using GodotGame.Game.Types;
+using GodotGame.Game.UI.Menu;
 
 public partial class GridManager : Node2D
 {

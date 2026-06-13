@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using GodotGame.Game.Types;
 
 public partial class ConstructionMenu : CanvasLayer
 {

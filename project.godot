@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="LastWall"
+config/name="GodotGame"
 run/main_scene="uid://c4ohaol0xvhy8"
 config/features=PackedStringArray("4.6", "C#", "Mobile")
 config/icon="res://icon.svg"
@@ -21,7 +21,7 @@ AudioManager="*uid://d3d7pqlkcqte3"
 
 [dotnet]
 
-project/assembly_name="LastWall"
+project/assembly_name="GodotGame"
 
 [physics]
 
