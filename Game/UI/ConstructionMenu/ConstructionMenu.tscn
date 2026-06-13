@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://cqbmuiuswxjhb"]
+
+[ext_resource type="Script" uid="uid://xg1x7n0h3ic7" path="res://Game/UI/ConstructionMenu/ConstructionMenu.cs" id="1_2x0x8"]
+[ext_resource type="Texture2D" uid="uid://gyqw60dddknv" path="res://Game/Resources/Tree/Tree1.png" id="2_qq6d8"]
+[ext_resource type="Texture2D" uid="uid://byc7u2strsesg" path="res://Game/Resources/Gold/Gold Stone 6.png" id="3_2c8sk"]
+[ext_resource type="Texture2D" uid="uid://dkk3vgw2ksm1q" path="res://Game/Resources/Sheep/Sheep_Idle.png" id="4_l3d86"]
+[ext_resource type="Texture2D" uid="uid://2hm0rdxnp8pw" path="res://Game/Units/Peasant/Peasant_Idle.png" id="5_o1s1y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n3uj3"]
+load_path = "res://.godot/imported/Banner_Slots.png-f8d7fd94290b4b745a01e893e068f7ab.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4hvqh"]
+texture = SubResource("CompressedTexture2D_n3uj3")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dv3ji"]
+load_path = "res://.godot/imported/Tower.png-3ec812646b7909bd20c6a18d8ca8783f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojck1"]
+atlas = ExtResource("2_qq6d8")
+region = Rect2(0, 0, 192, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu5un"]
+atlas = ExtResource("4_l3d86")
+region = Rect2(0, 0, 128, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gr2is"]
+atlas = ExtResource("5_o1s1y")
+region = Rect2(0, 0, 192, 0)
+
+[node name="ConstructionMenu" type="CanvasLayer" unique_id=100218950]
+script = ExtResource("1_2x0x8")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=768618798]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -256.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4hvqh")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer" unique_id=513723981]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="TowerButton" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=1252381667]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 2
+texture_normal = SubResource("CompressedTexture2D_dv3ji")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TreeButton" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=344863136]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 2
+texture_normal = SubResource("AtlasTexture_ojck1")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="GoldButton" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=916620864]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 2
+texture_normal = ExtResource("3_2c8sk")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SheepButton" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=908527433]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 2
+texture_normal = SubResource("AtlasTexture_uu5un")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PeasantButton" type="TextureButton" parent="PanelContainer/GridContainer" unique_id=1243333833]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 2
+texture_normal = SubResource("AtlasTexture_gr2is")
+ignore_texture_size = true
+stretch_mode = 5

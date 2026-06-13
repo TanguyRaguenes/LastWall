@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dn3fmrxdxpx2l"]
+
+[ext_resource type="Script" uid="uid://pc4wmegmfs4e" path="res://Game/Buildings/Tower/Tower.cs" id="1_8qjvt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dv3ji"]
+load_path = "res://.godot/imported/Tower.png-3ec812646b7909bd20c6a18d8ca8783f.ctex"
+
+[node name="Tower" type="Node2D" unique_id=750685378]
+script = ExtResource("1_8qjvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1771745702]
+texture = SubResource("CompressedTexture2D_dv3ji")
+offset = Vector2(0, -128)

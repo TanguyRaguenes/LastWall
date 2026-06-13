@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://b6xwg4gb86vjd"]
+
+[ext_resource type="Script" uid="uid://cwhj2iyw82axq" path="res://Game/Resources/Sheep/Sheep.cs" id="1_4r1xd"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8y61g"]
+load_path = "res://.godot/imported/Sheep_Idle.png-4cba7f4216081234e1bad1343f6ef350.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aloly"]
+atlas = SubResource("CompressedTexture2D_8y61g")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmasp"]
+atlas = SubResource("CompressedTexture2D_8y61g")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wehd"]
+atlas = SubResource("CompressedTexture2D_8y61g")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4uok"]
+atlas = SubResource("CompressedTexture2D_8y61g")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr2u3"]
+atlas = SubResource("CompressedTexture2D_8y61g")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41blu"]
+atlas = SubResource("CompressedTexture2D_8y61g")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4e0il"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aloly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmasp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wehd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4uok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr2u3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41blu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Sheep" type="Node2D" unique_id=248754711]
+script = ExtResource("1_4r1xd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1549905355]
+sprite_frames = SubResource("SpriteFrames_4e0il")
+offset = Vector2(0, -64)

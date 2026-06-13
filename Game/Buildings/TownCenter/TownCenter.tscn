@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b3h263ues7uhp"]
+
+[ext_resource type="Script" uid="uid://o1mpwihpe0dx" path="res://Game/Buildings/TownCenter/TownCenter.cs" id="1_hp75i"]
+[ext_resource type="Texture2D" path="res://Assets/Tiny Swords (Free Pack)/Buildings/Blue Buildings/Castle.png" id="2_ka482"]
+
+[node name="Node2D" type="Node2D" unique_id=1144542442]
+script = ExtResource("1_hp75i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=520289419]
+texture = ExtResource("2_ka482")

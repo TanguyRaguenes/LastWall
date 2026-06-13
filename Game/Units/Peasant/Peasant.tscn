@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ct06w5tjfrg7h"]
+
+[ext_resource type="Script" uid="uid://chwosady2hamp" path="res://Game/Units/Peasant/Peasant.cs" id="1_8nluq"]
+[ext_resource type="Texture2D" uid="uid://2hm0rdxnp8pw" path="res://Game/Units/Peasant/Peasant_Idle.png" id="2_jj3mk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nluq"]
+atlas = ExtResource("2_jj3mk")
+region = Rect2(0, 0, 192, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8nluq"]
+radius = 154.26276
+
+[node name="Peasant" type="Area2D" unique_id=1401433569]
+script = ExtResource("1_8nluq")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=1692353333]
+texture = SubResource("AtlasTexture_8nluq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=627922331]
+shape = SubResource("CircleShape2D_8nluq")
+
+[connection signal="input_event" from="." to="." method="OnInputEvent"]
