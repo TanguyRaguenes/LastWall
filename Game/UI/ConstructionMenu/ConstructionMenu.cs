@@ -2,6 +2,8 @@ using Godot;
 using System;
 using GodotGame.Game.Types;
 
+namespace GodotGame.Game.UI.ConstructionMenu;
+
 public partial class ConstructionMenu : CanvasLayer
 {
 

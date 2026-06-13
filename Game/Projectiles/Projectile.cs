@@ -1,5 +1,7 @@
 using Godot;
-using System;
+using GodotGame.Game.Enemies;
+
+namespace GodotGame.Game.projectile;
 
 public partial class Projectile : Node2D
 {

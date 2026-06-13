@@ -1,5 +1,6 @@
-using Godot;
-using System;
+using GodotGame.Game.bases;
+
+namespace GodotGame.Game.Resources.Gold;
 
 public partial class Gold : Harvestable
 {

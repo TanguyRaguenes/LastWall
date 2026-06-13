@@ -1,5 +1,6 @@
 using Godot;
-using System;
+
+namespace GodotGame.Game.Buildings.TownCenter;
 
 public partial class TownCenter : Node2D
 {

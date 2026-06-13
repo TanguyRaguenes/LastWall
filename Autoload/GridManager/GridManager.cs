@@ -1,7 +1,12 @@
 using Godot;
 using System.Collections.Generic;
 using GodotGame.Game.Types;
-using GodotGame.Game.UI.Menu;
+using GodotGame.Game.UI;
+using GodotGame.Game.Buildings.Tower;
+using GodotGame.Game.Buildings.TownCenter;
+using GodotGame.Game.Enemies;
+
+namespace GodotGame.Autoload.GridManager;
 
 public partial class GridManager : Node2D
 {

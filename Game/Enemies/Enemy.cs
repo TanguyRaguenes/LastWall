@@ -1,5 +1,8 @@
 using Godot;
+using GodotGame.Game.Buildings.TownCenter;
+using GodotGame.Autoload.GridManager;
 
+namespace GodotGame.Game.Enemies;
 public partial class Enemy : Node2D
 {
     private const float Speed = 100f;

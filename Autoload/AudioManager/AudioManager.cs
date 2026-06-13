@@ -1,6 +1,7 @@
 using Godot;
-using System;
 using System.Collections.Generic;
+
+namespace GodotGame.Autoload.AudioManager;
 
 public partial class AudioManager : Node
 {

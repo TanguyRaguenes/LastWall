@@ -1,5 +1,7 @@
 using Godot;
 
+using GodotGame.Game.Interfaces;
+
 public partial class SelectionManager: Node2D
 {
 

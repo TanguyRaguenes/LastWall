@@ -1,5 +1,7 @@
 using Godot;
-using System;
+using GodotGame.Game.bases;
+
+namespace GodotGame.Game.Resources.Sheep;
 
 public partial class Sheep : Harvestable
 {

@@ -1,5 +1,9 @@
 using Godot;
-using System;
+using GodotGame.Game.projectile;
+using GodotGame.Game.Enemies;
+using GodotGame.Autoload.AudioManager;
+
+namespace GodotGame.Game.Buildings.Tower;
 
 public partial class Tower : Node2D
 {

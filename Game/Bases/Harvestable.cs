@@ -1,5 +1,6 @@
 using Godot;
 
+namespace GodotGame.Game.bases;
 
 public abstract partial class Harvestable : Node2D
 {

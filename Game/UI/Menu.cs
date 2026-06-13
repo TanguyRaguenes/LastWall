@@ -2,7 +2,7 @@ using Godot;
 using System;
 using GodotGame.Game.Types;
 
-namespace GodotGame.Game.UI.Menu;
+namespace GodotGame.Game.UI;
 
 
 public partial class Menu : CanvasLayer
